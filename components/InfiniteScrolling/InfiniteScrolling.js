@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { useEffect, useState, useRef } from 'react';
-import { realFetchAPI } from '../fetchAPI/fetchAPI';
 
 const InfiniteScrolling = ({
   dataArrayList,
@@ -31,7 +30,7 @@ const InfiniteScrolling = ({
 
 	useEffect(() => {
 		observer.current = new IntersectionObserver(([entry]) => { setCallback(entry) }, 
-		{ rootMargin: '1px', threshold : 1 })
+		{ rootMargin: '1px', threshold : 1, ...observerOptions})
 		const currentElem = loaderElem;
 		const currentObserver = observer.current;
 		
